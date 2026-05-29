@@ -1,0 +1,11 @@
+export const APP_DISPLAY_NAME = 'UGC Ops';
+export const APP_DESCRIPTION = 'UGC campaign operations workspace for creator sourcing, review, outreach, messaging, and reporting';
+export const APPLICATION_UNIVERSAL_IDENTIFIER = 'ecf43a96-efad-4405-894e-b6fb87620674';
+export const DEFAULT_ROLE_UNIVERSAL_IDENTIFIER = '0d0eb299-5a36-4ecb-80a3-5f7b925acc48';
+export const MAIN_PAGE_FRONT_COMPONENT_UNIVERSAL_IDENTIFIER =
+  'c2d87c81-c8bc-481e-b31c-f640b4467510';
+export const MAIN_PAGE_LAYOUT_UNIVERSAL_IDENTIFIER = '6bb5ecc4-913b-4603-94e2-45c70a546647';
+export const MAIN_PAGE_LAYOUT_TAB_UNIVERSAL_IDENTIFIER = 'ba797104-9d68-4a64-bb25-7c34883047db';
+export const MAIN_PAGE_WIDGET_UNIVERSAL_IDENTIFIER = '2ac4c484-6b79-4e38-a29d-8f7c45369474';
+export const MAIN_PAGE_NAVIGATION_MENU_ITEM_UNIVERSAL_IDENTIFIER =
+  'e0ee37e8-e2ae-471c-8afd-488512cbab52';

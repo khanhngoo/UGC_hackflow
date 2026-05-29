@@ -1,0 +1,60 @@
+import {
+  ViewKey,
+  ViewOpenRecordIn,
+  ViewSortDirection,
+  ViewType,
+  ViewVisibility,
+  defineView,
+} from 'twenty-sdk/define';
+
+import {
+  UGC_FIELD_IDS,
+  UGC_OBJECT_IDS,
+  UGC_VIEW_FIELD_IDS,
+  UGC_VIEW_IDS,
+  UGC_VIEW_SORT_IDS,
+} from 'src/constants/ugc-universal-identifiers';
+
+export default defineView({
+  universalIdentifier: UGC_VIEW_IDS.creatorDatabase,
+  name: 'Creator Database',
+  objectUniversalIdentifier: UGC_OBJECT_IDS.creator,
+  type: ViewType.TABLE,
+  key: ViewKey.INDEX,
+  icon: 'IconDatabase',
+  position: 0,
+  visibility: ViewVisibility.WORKSPACE,
+  openRecordIn: ViewOpenRecordIn.SIDE_PANEL,
+  fields: [
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.name, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.name, position: 0, size: 160 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.handle, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.handle, position: 1, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.instagramLink, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.instagramLink, position: 2, size: 140 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.tiktokLink, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.tiktokLink, position: 3, size: 140 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.profileLink, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.profileLink, position: 4, size: 140 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.country, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.country, position: 5, size: 100 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.language, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.language, position: 6, size: 100 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.niche, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.niche, position: 7, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.tags, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.tagList, position: 8, size: 160 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.proposedReason, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.proposedReason, position: 9, size: 180 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.brandFitRating, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.brandFitRating, position: 10, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.audienceFitRating, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.audienceFitRating, position: 11, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.followerCount, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.followerCount, position: 12, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.medianViewsRecent, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.medianViewsRecent, position: 13, size: 130 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.avgViewsRecent, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.avgViewsRecent, position: 14, size: 130 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.engagementRate, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.engagementRate, position: 15, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.avgLikesRecent, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.avgLikesRecent, position: 16, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.avgCommentsRecent, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.avgCommentsRecent, position: 17, size: 130 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.postsLast30Days, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.postsLast30Days, position: 18, size: 130 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.lastPostAt, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.lastPostAt, position: 19, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.pipelineStatus, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.pipelineStatus, position: 20, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.outreachOwner, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.outreachOwner, position: 21, size: 100 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorDatabase.activeCampaignName, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.activeCampaignName, position: 22, size: 160 },
+  ],
+  sorts: [
+    {
+      universalIdentifier: UGC_VIEW_SORT_IDS.creatorDatabaseLastPostAt,
+      fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.lastPostAt,
+      direction: ViewSortDirection.DESC,
+    },
+  ],
+});

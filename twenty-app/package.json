@@ -1,0 +1,18 @@
+{
+  "name": "ugc-ops-twenty-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Twenty app for UGC campaign operations",
+  "type": "module",
+  "scripts": {
+    "dev": "twenty dev",
+    "sync": "twenty dev --once"
+  },
+  "dependencies": {
+    "twenty-sdk": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
+

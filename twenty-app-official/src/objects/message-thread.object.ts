@@ -1,0 +1,75 @@
+import { defineObject, FieldType, OnDeleteAction, RelationType } from 'twenty-sdk/define';
+
+import { CHANNEL_OPTIONS } from 'src/constants/ugc-options';
+import { UGC_FIELD_IDS, UGC_OBJECT_IDS } from 'src/constants/ugc-universal-identifiers';
+
+export default defineObject({
+  universalIdentifier: UGC_OBJECT_IDS.messageThread,
+  nameSingular: 'creatorMessageThread',
+  namePlural: 'creatorMessageThreads',
+  labelSingular: 'Message Thread',
+  labelPlural: 'Message Threads',
+  description: 'One conversation thread with a creator on one channel.',
+  icon: 'IconMessages',
+  labelIdentifierFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.messageThread.lastSnippet,
+  fields: [
+    {
+      universalIdentifier: UGC_FIELD_IDS.messageThread.creator,
+      name: 'creator',
+      label: 'Creator',
+      type: FieldType.RELATION,
+      icon: 'IconUserStar',
+      relationTargetObjectMetadataUniversalIdentifier: UGC_OBJECT_IDS.creator,
+      relationTargetFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.creator.messageThreads,
+      universalSettings: { relationType: RelationType.MANY_TO_ONE, onDelete: OnDeleteAction.SET_NULL, joinColumnName: 'creatorId' },
+      isNullable: true,
+    },
+    {
+      universalIdentifier: UGC_FIELD_IDS.messageThread.campaign,
+      name: 'campaign',
+      label: 'Campaign',
+      type: FieldType.RELATION,
+      icon: 'IconTargetArrow',
+      relationTargetObjectMetadataUniversalIdentifier: UGC_OBJECT_IDS.campaign,
+      relationTargetFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.campaign.messageThreads,
+      universalSettings: { relationType: RelationType.MANY_TO_ONE, onDelete: OnDeleteAction.SET_NULL, joinColumnName: 'campaignId' },
+      isNullable: true,
+    },
+    {
+      universalIdentifier: UGC_FIELD_IDS.messageThread.outreachRecord,
+      name: 'outreachRecord',
+      label: 'Outreach Record',
+      type: FieldType.RELATION,
+      icon: 'IconSend',
+      relationTargetObjectMetadataUniversalIdentifier: UGC_OBJECT_IDS.outreach,
+      relationTargetFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.messageThreads,
+      universalSettings: { relationType: RelationType.MANY_TO_ONE, onDelete: OnDeleteAction.SET_NULL, joinColumnName: 'outreachRecordId' },
+      isNullable: true,
+    },
+    { universalIdentifier: UGC_FIELD_IDS.messageThread.channel, name: 'channel', label: 'Channel', type: FieldType.SELECT, icon: 'IconMessage', options: [...CHANNEL_OPTIONS] },
+    { universalIdentifier: UGC_FIELD_IDS.messageThread.externalThreadId, name: 'externalThreadId', label: 'External Thread ID', type: FieldType.TEXT, icon: 'IconHash' },
+    {
+      universalIdentifier: UGC_FIELD_IDS.messageThread.status,
+      name: 'status',
+      label: 'Status',
+      type: FieldType.SELECT,
+      icon: 'IconProgress',
+      options: [
+        { value: 'OPEN', label: 'Open', position: 0, color: 'green' },
+        { value: 'CLOSED', label: 'Closed', position: 1, color: 'gray' },
+      ],
+    },
+    { universalIdentifier: UGC_FIELD_IDS.messageThread.lastMessageAt, name: 'lastMessageAt', label: 'Last Message At', type: FieldType.DATE_TIME, icon: 'IconCalendarTime', isNullable: true },
+    { universalIdentifier: UGC_FIELD_IDS.messageThread.lastSnippet, name: 'lastSnippet', label: 'Last Snippet', type: FieldType.TEXT, icon: 'IconTextCaption' },
+    {
+      universalIdentifier: UGC_FIELD_IDS.messageThread.messages,
+      name: 'messages',
+      label: 'Messages',
+      type: FieldType.RELATION,
+      icon: 'IconMessage2',
+      relationTargetObjectMetadataUniversalIdentifier: UGC_OBJECT_IDS.message,
+      relationTargetFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.message.thread,
+      universalSettings: { relationType: RelationType.ONE_TO_MANY },
+    },
+  ],
+});

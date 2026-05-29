@@ -1,0 +1,66 @@
+import {
+  ViewKey,
+  ViewOpenRecordIn,
+  ViewSortDirection,
+  ViewType,
+  ViewVisibility,
+  defineView,
+} from 'twenty-sdk/define';
+
+import {
+  UGC_FIELD_IDS,
+  UGC_OBJECT_IDS,
+  UGC_VIEW_FIELD_IDS,
+  UGC_VIEW_GROUP_IDS,
+  UGC_VIEW_IDS,
+  UGC_VIEW_SORT_IDS,
+} from 'src/constants/ugc-universal-identifiers';
+
+export default defineView({
+  universalIdentifier: UGC_VIEW_IDS.creatorOperationsKanban,
+  name: 'Creator Operations',
+  objectUniversalIdentifier: UGC_OBJECT_IDS.outreach,
+  type: ViewType.KANBAN,
+  key: ViewKey.INDEX,
+  icon: 'IconLayoutKanban',
+  position: 2,
+  visibility: ViewVisibility.WORKSPACE,
+  openRecordIn: ViewOpenRecordIn.SIDE_PANEL,
+  mainGroupByFieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.pipelineStatus,
+  fields: [
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.creatorHandleLink, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.creatorHandleLink, position: 0, size: 140 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.productRef, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.productRef, position: 1, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.creatorPrice, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.creatorPrice, position: 2, size: 100 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.campaign, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.campaign, position: 3, size: 160 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.pipelineStatus, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.pipelineStatus, position: 4, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.member, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.member, position: 5, size: 120 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.contactMethod, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.contactMethod, position: 6, size: 130 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.firstContactedAt, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.firstContactedAt, position: 7, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.lastContactedAt, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.lastContactedAt, position: 8, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.nextFollowUpAt, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.nextFollowUpAt, position: 9, size: 150 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.brief, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.brief, position: 10, size: 160 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.contract, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.contract, position: 11, size: 160 },
+    { universalIdentifier: UGC_VIEW_FIELD_IDS.creatorOperationsKanban.submitted, fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.submitted, position: 12, size: 180 },
+  ],
+  groups: [
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.approvedToContact, fieldValue: 'APPROVED_TO_CONTACT', position: 0, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.contacted, fieldValue: 'CONTACTED', position: 1, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.replied, fieldValue: 'REPLIED', position: 2, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.needsFollowUp, fieldValue: 'NEEDS_FOLLOW_UP', position: 3, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.dealConfirmed, fieldValue: 'DEAL_CONFIRMED', position: 4, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.briefSent, fieldValue: 'BRIEF_SENT', position: 5, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.contentSubmitted, fieldValue: 'CONTENT_SUBMITTED', position: 6, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.needsRevision, fieldValue: 'NEEDS_REVISION', position: 7, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.approved, fieldValue: 'APPROVED', position: 8, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.readyForAdTest, fieldValue: 'READY_FOR_AD_TEST', position: 9, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.paid, fieldValue: 'PAID', position: 10, isVisible: true },
+    { universalIdentifier: UGC_VIEW_GROUP_IDS.creatorOperationsKanban.closed, fieldValue: 'CLOSED', position: 11, isVisible: false },
+  ],
+  sorts: [
+    {
+      universalIdentifier: UGC_VIEW_SORT_IDS.creatorOperationsKanbanNextFollowUp,
+      fieldMetadataUniversalIdentifier: UGC_FIELD_IDS.outreach.nextFollowUpAt,
+      direction: ViewSortDirection.ASC,
+    },
+  ],
+});
