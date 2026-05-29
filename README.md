@@ -115,14 +115,15 @@ Notes:
 
 1. **Propose a creator** — **Telegram:** send profile link → pick product number → campaign number → reason. **Or Twenty UI:** paste URL, select product/campaign, enter reason on **UGC Ops**.
 2. **Background enrichment** — Apify updates follower/views on `Creator` and candidate snapshots; OpenAI suggests niche, tags, and brand/audience star ratings. Failures are logged as `IntegrationEvent` and do not block intake.
-3. **Creator Review** — kanban on `CampaignCreatorCandidate` (Proposed → Under Review → Approved / Rejected / etc.).
-4. **Approve to contact** — moving a card to **Approved to Contact** runs the `approve-candidate-handoff` logic function: creates `OutreachRecord`, card appears on **Creator Operations**.
-5. **Outreach and follow-up** — log `lastContactedAt`; `apply-outreach-follow-up` sets `nextFollowUpAt` (+3 days when still no reply). Optional overdue reminders: `POST /jobs/send-reminders`.
+3. **Creator Review** — kanban on `CampaignCreatorCandidate` grouped by `pipelineStatus` (Proposed → Under Review → Approved / Rejected / etc.).
+4. **Approve to contact** — drag to **Approved to Contact** on the same candidate row; `approve-candidate-handoff` syncs denormalized `Creator` fields; card appears on **Creator Operations** (no separate outreach record).
+5. **Outreach and follow-up** — on the candidate, log `lastContactedAt`; `apply-outreach-follow-up` sets `nextFollowUpAt` (+3 days when still no reply). Optional overdue reminders: `POST /jobs/send-reminders`.
 
 Details and acceptance criteria: [docs/workflows.md](docs/workflows.md).
 
 ## Further reading
 
+- [PRODUCTION.md](PRODUCTION.md) — VPS deployment, HTTPS, Telegram webhook, production env
 - [backend/README.md](backend/README.md) — API endpoints, Apify, AI summary, reminders
 - [docs/architecture.md](docs/architecture.md) — system boundaries and failure rules
 - [milestone.md](milestone.md) — what is built vs planned (M7 contact workflows, M8 messaging, etc.)
